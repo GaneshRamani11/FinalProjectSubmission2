@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		#someId{
+			color: black;
+		}
+		#inputField{
+			top:480px;
+			left: 920px;
+		}
+		#inputField2{
+			top:480px;
+			left: 1030px;
+		}
+		#inputField1{
+			top:480px;
+			left: 1140px;
+		}
+		.textField{
+			
+             width: 300px;
+             font-size: 15px;
+             color: blueviolet;
+	         font-family: cursive;
+			position:relative;
+			top:90px;
+			left: 1000px;
+		}
+		.note{
+			background-color: indianred;
+             width: 110px;
+             font-size: 20px;
+             color: white;
+             border-radius: 0 5px 5px 0;
+	         font-family: cursive;
+			position:relative;
+			top:140px;
+			left: 1010px;
+			
+		}
+		input{
+			color: blue;
+			width: 100px;
+			margin-left: 20px;
+			position:absolute;
+		}
+#mySidenav button {
+    position: absolute;
+    left:10px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+	font-family: cursive;
+}
+
+#mySidenav button:hover {
+    left: 0;
+}
+#mySidenav1 button {
+    position: absolute;
+    right:-10px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+	font-family: cursive;
+    color: white;
+    border-radius: 0 2px 2px 0;
+	position: absolute;
+}
+
+#mySidenav1 button:hover {
+    right: 0;
+}
+
+#Cube {
+    top: 20px;
+    background-color: #f44336;
+}
+
+#Cone {
+    top: 80px;
+    background-color: #f44336;
+}
+
+#Tree {
+    top: 140px;
+    background-color: #f44336;
+}
+
+#Sphere {
+    top: 200px;
+    background-color: #f44336;
+}
+        #Cylinder{
+            top:260px;
+            background-color: #f44336;
+        }
+		#Multiples{
+			top:320px;
+            background-color: #f44336;
+		}
+		#Model{
+			top:20px;
+            background-color: #2196F3;
+		}
+		#Model1{
+			top:145px;
+            background-color: #2196F3;
+		}
+
+        #BasciModel{
+            top:300px;
+            background-color: #2196F3;
+        }
+		#BasciModel2{
+			top:395px;
+            background-color: #2196F3;
+		}
+		canvas{
+			border: solid black 1px;
+			left: 120px;
+			top: 340px;
+			position:absolute;
+			transition: 0.3s;
+			color: black;
+            border-radius: 0 5px 5px 0;
+		}
+		h2{
+			font-family: cursive;
+			text-align: center;
+		}
+		body{
+			background-image: url(ganesh.jpg);
+			position:relative;
+		}
+		h4{
+			font-family: cursive;
+			text-align: center;
+		}
+        
+        #NormalText{
+            alignment: center;
+            font-family: cursive;
+			float: left;
+			width: 30%;
+			padding-left: 150px;
+
+        }
+		#second{
+			alignment: justify;
+            font-family: cursive;
+			float:right;
+			margin: 0 10%;
+			width: 30%;
+		}
+
+</style>
+</head>
+	<body>
+		<h2>  Please Select the ELements from the Sidebar</h2>
+		<h4 id="text"></h4>
+        <div id="NormalText">
+        <span id="box">
+            First Submission:
+            <br>
+            &#9635;Basic Primitive 3D Models using Three JS.<br>
+            &#9635;I have Modelled a Sphere , Cone , Cylinder and a Cube.<br>
+            &#9635;I have Also tried to Model using Orbit controls for the Model to Move Around using Mouse.<br>
+            &#9635;I have Rendered Multiples objects placed in a Particular object According to User.<br>
+            &#9635;I have used Primitives to render a Tree using a Cylinder and a Cone.
+            <br>
+            <br>
+</span>
+			 </div>
+		<div id="second">
+			<span id="box1">
+            Second Submission:
+            <br>
+             Improvements From the First :
+            <br>&#9635;Modelled a Cube , Cylinder and Sphere Making the Sphere Rotate in a Orbit Around the Cube.<br>
+             &#9635; Also Modelled a Solar System using Directional Light on a Lambert Material.<br>
+             &#9635; Also Modelled a Solar System using Basic Mesh Lambert Material which does not support Lights in Three JS<br>
+			 &#9635; I have Also Implemented a Cube with User Co-ordinates.
+
+			</span>
+        </div>
+		<div id="Inputs"></div>
+		<div class="sidenav" id="mySidenav">
+			    <button id="Cube" onclick="drawCube();">Cube</button>
+				<button id="Cone" onclick="cone();">Cone</button>
+				<button id="Cylinder" onclick="Cylinder();">Cylinder</button>
+                <button id="Tree" onclick="tree();">Tree</button>
+				<button id="Sphere" onclick="sphere();">Sphere</button>
+		    	<a href="Random_Objects_generation.html"><button id="Multiples">Multiples</button></a>
+			</div>
+		<div class="sidenav1" id="mySidenav1">
+		    	<button id="Model" onclick="solarSystem1();">Solar Model Primitive </button>
+			    <button id="Model1" onclick="solar();">Solar Model with Lights </button>
+			    <button id="BasciModel" onclick="Model();">Basic Model</button>
+		    	<button id="BasciModel2" onclick="exp();">Coordinate</button>
+			
+			
+		</div>
+		
+		<script src="http://threejs.org/build/three.min.js"></script>
+		<script src="TrackballControls.js"></script>
+        <script src="OrbitControls.js"></script>
+		<script src="Cube1.js"></script>
+		<script src="CONE.js"></script>
+		<script src="CYLINDER.js"></script>
+		<script src="SPHERE.js"></script>
+		<script src="TREE.js"></script>
+		<script src="Modelling1.js"></script>
+		<script src="Solar_system.js"></script>
+		<script src="Solar_system2.js"></script>
+		<script src="CoordinateCube.js"></script>
+        
+	</body>
+</html>
